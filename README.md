@@ -11,9 +11,9 @@ This macro was written by SlickEdit support and modified by myself, SlickEdit wa
 ## Installation
 _note: This plugis was only tested by myself on Debian GNU/Linux. This plugin should work with all Linux distributions but might need some modification for use with Windows or macOS. Edit line 37 if you don't use Linux or have the wakatime CLI installed in another directory than ~/.local/bin which is de default.
 
-* You need to have [SlickEdit](https://www.slickedit.com "SlickEdit"). installed. (_This macro was tested with SlickEdit Professional, I can't confirm if it also works with SlickEdit Standard).
+* You need to have [SlickEdit](https://www.slickedit.com "SlickEdit"). installed. (_This macro was tested with SlickEdit Professional, I can't confirm if it also works with SlickEdit Standard_).
 
-* You also need a (free) [Wakatime](https://www.wakatime.com "Wakatime" account
+* You also need a (free) [Wakatime](https://www.wakatime.com "Wakatime") account
 
 * install python3 pip installer (**sudo apt install python3-pip** on Debian based Linux distributions like Ubuntu and Linux mint).
 
