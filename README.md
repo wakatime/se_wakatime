@@ -11,9 +11,9 @@ This macro was written by SlickEdit support and modified by myself, SlickEdit wa
 ## Installation
 _note: This plugis was only tested by myself on Debian GNU/Linux. This plugin should work with all Linux distributions but might need some modification for use with Windows or macOS. Edit line 37 if you don't use Linux or have the wakatime CLI installed in another directory than ~/.local/bin which is de default.
 
-* You need to have [link](https://www.slickedit.com "SlickEdit"). installed. (_This macro was tested with SlickEdit Professional, I can't confirm if it also works with SlickEdit Standard).
+* You need to have [SlickEdit](https://www.slickedit.com "SlickEdit"). installed. (_This macro was tested with SlickEdit Professional, I can't confirm if it also works with SlickEdit Standard).
 
-* You also need a (free) [link](https://www.wakatime.com "Wakatime" account
+* You also need a (free) [Wakatime](https://www.wakatime.com "Wakatime" account
 
 * install python3 pip installer (**sudo apt install python3-pip** on Debian based Linux distributions like Ubuntu and Linux mint).
 
@@ -24,7 +24,7 @@ _note: This plugis was only tested by myself on Debian GNU/Linux. This plugin sh
 
 * Edit the wakatime configuration file.
 _this is a basic configuration file from wakatime_
-**Put your API key (available at [link](https://wakatime.com/settings/account "your wakatime account") in this configuration file**
+**Put your API key (available at [Your Wakatime account](https://wakatime.com/settings/account "your wakatime account") in this configuration file**
 ~~~~
 [settings]
 debug = false
@@ -71,4 +71,4 @@ If the installation was done correctly, you can edit files in SlickEdit and see 
 If your data is now shown in wakatime, enable the debug mode and study the *.wakatime.log* file.
 Make sure the **proxy** is setup correctly in the config file (or remove that line if you don't us a _proxy server_)
 
-You can also checkout the [link](https://github.com/wakatime/wakatime "wakatime CLI github page") for more information on the CLI client that is used.
+You can also checkout the [Wakatime GitHub page](https://github.com/wakatime/wakatime "wakatime CLI github page") for more information on the CLI client that is used.
