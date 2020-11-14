@@ -51,7 +51,7 @@ void start_periodic_timer()
 {
    // Only start if it hasn't been started already.
    if (periodic_timer_handle < 0) {
-      PERIOD_IN_MINUTES := 1;
+      PERIOD_IN_MINUTES := 2;
       periodic_timer_handle = _set_timer(PERIOD_IN_MINUTES * 60 * 1000, periodic_callback);
    }
 }
