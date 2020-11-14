@@ -41,7 +41,7 @@ void periodic_callback()
    // optinally set "hostname = " to your hostname so Wakatime can keep track of 
    // what host was used to edit the files. 
    
-   // only send hearthbeath when file is modified.
+   // only send hearthbeat when file is modified.
    if (p_modify > 0) {
       shell(command);
    }
