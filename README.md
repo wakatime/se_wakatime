@@ -25,7 +25,7 @@ _note: This plugis was only tested by myself on Debian GNU/Linux. This plugin sh
 * Edit the wakatime configuration file.
 _this is a basic configuration file from wakatime_
 **Put your API key (available at [link](https://wakatime.com/settings/account "your wakatime account") in this configuration file**
-`
+~~~~
 [settings]
 debug = false
 api_key = your-api-key
@@ -53,7 +53,7 @@ projects/foo = new project name
 ^/home/user/projects/bar(\d+)/ = project{0}
 [git]
 disable_submodules = false
-`
+~~~~
 You can also set debug = false to debug = true to let wakatime create a log file **~/.wakatime.log** so you can see if there are any errors. (it's best to disable it again after you've checked it all works fine).
 
 * Finally load the plugin into **slickedit**
