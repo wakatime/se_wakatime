@@ -46,7 +46,6 @@ void periodic_callback()
       // check if the file was modified, and only then send a hearthbeat to wakatime
       if (p_modify > 0) {
          shell(command);
-         say(command);
       }
 
       // if the editor is opened for more than 10 minutes but no file was modified, send a hearthbeat
