@@ -28,29 +28,40 @@ definit()
 // This is the function that will be called by the timer.
 void periodic_callback()
 {
-   // This command is user specific Change ~/.local/bin/wakatime to the location 
-   // where the CLI Plugin is installed. (linux default is ~/.local/bin/)
+   // This command is user specific Change /home/patrick/.local/bin/wakatime to 
+   // the location where the CLI Plugin is installed. (linux default is 
+   // /home/USERNAME/.local/bin/) 
    // --plugin slickedit-wakatime let's Wakatime report this as comming from 
    //   Slickedit (so it will show as Slickedit in the Wakatime Dashboard.
    // --write indicates that there was written to the file. 
    // --entity refers to the file that was edited/saved (p_buf_name = the open 
    //   buffer) 
    _str command = "/home/patrick/.local/bin/wakatime --plugin slickedit-wakatime --write --entity ":+p_buf_name;
+    
    // execute the command (you can enable debug = true in ~/.wakatime.cfg to let
    // wakatime create a logfile (~/.wakatime.log) to check for errors. 
    // make sure "api_key = " is set to your Wakatime private api_key 
    // optinally set "hostname = " to your hostname so Wakatime can keep track of 
    // what host was used to edit the files. 
       
+      // check if the file was modified, and only then send a hearthbeat to wakatime
       if (p_modify > 0) {
          shell(command);
       }
+
+      // if the editor is opened for more than 10 minutes but no file was modified, send a hearthbeat
+      // to wakatime (we assume the user is debuggin/reading the sourcecode and 
+      // not editing). Enable if you want to include this or keep disabled to 
+      // only count actual editing. 
+
+      /*
       if (p_modify == 0) {
          if (debugging >=10) {
             debugging = 0;
             shell(command);
          }
       }
+      */
 }
 
 void start_periodic_timer()
@@ -76,24 +87,20 @@ void _prjopen_waka()
    start_periodic_timer();
 }
 
-/*
 void _buffer_add_waka()
 {
    // Executed when a new file is added.
    // For some reason this causes Wakatime to give a "File not found error"
-   _str command = "/home/patrick/.local/bin/wakatime --plugin slickedit-wakatime --write --entity ":+p_buf_name;
-   shell(command);      
+   _str command = "/home/patrick/local/bin/wakatime --plugin slickedit-wakatime --write --entity ":+p_buf_name;
+   shell(command);
 } 
-*/ 
 
-/*
-void _switchbuf_waka ()
+void _switchbuf_waka () // uncomment the last 2 lines of this function to have wakatime update everytime a new file/buffer
+                        // is opened. This will cause a substantial delay when switching between files in the editor.
 {
-   // Executed when a new file is opened or when switching file-tabs. 
- 
-   if (p_modify > 0) {
-      _str command = "/home/patrick/.local/bin/wakatime --plugin slickedit-wakatime --write --entity ":+p_buf_name;
-      shell(command);
-   }
+   // Executed when a new file is opened or when switching file-tabs.
+   // This causes a delay when opening another file/tab.
+   //   _str command = "/home/patrick/.local/bin/wakatime --plugin slickedit-wakatime --write --entity ":+p_buf_name;
+   //   shell(command);
 }
-*/
+
