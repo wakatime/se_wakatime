@@ -18,6 +18,7 @@
 #include "slick.sh"
 
 static int periodic_timer_handle;
+static int debugging=0;               // we assume the user is debugging the code and not editing it.
 
 definit()
 {
@@ -34,24 +35,29 @@ void periodic_callback()
    // --write indicates that there was written to the file. 
    // --entity refers to the file that was edited/saved (p_buf_name = the open 
    //   buffer) 
-   _str command = "~/.local/bin/wakatime --plugin slickedit-wakatime --write --entity ":+p_buf_name;
+   _str command = "/home/patrick/.local/bin/wakatime --plugin slickedit-wakatime --write --entity ":+p_buf_name;
    // execute the command (you can enable debug = true in ~/.wakatime.cfg to let
    // wakatime create a logfile (~/.wakatime.log) to check for errors. 
    // make sure "api_key = " is set to your Wakatime private api_key 
    // optinally set "hostname = " to your hostname so Wakatime can keep track of 
    // what host was used to edit the files. 
-   
-   // only send hearthbeat when file is modified.
-   if (p_modify > 0) {
-      shell(command);
-   }
+      
+      if (p_modify > 0) {
+         shell(command);
+      }
+      if (p_modify == 0) {
+         if (debugging >=10) {
+            debugging = 0;
+            shell(command);
+         }
+      }
 }
 
 void start_periodic_timer()
 {
    // Only start if it hasn't been started already.
    if (periodic_timer_handle < 0) {
-      PERIOD_IN_MINUTES := 2;
+      PERIOD_IN_MINUTES := 2;          // The wakatime default time between hearthbeats is 2 minutes
       periodic_timer_handle = _set_timer(PERIOD_IN_MINUTES * 60 * 1000, periodic_callback);
    }
 }
@@ -69,3 +75,25 @@ void _prjopen_waka()
    // This call_list hook ensure the hook is started as soon as a project is started. 
    start_periodic_timer();
 }
+
+/*
+void _buffer_add_waka()
+{
+   // Executed when a new file is added.
+   // For some reason this causes Wakatime to give a "File not found error"
+   _str command = "/home/patrick/.local/bin/wakatime --plugin slickedit-wakatime --write --entity ":+p_buf_name;
+   shell(command);      
+} 
+*/ 
+
+/*
+void _switchbuf_waka ()
+{
+   // Executed when a new file is opened or when switching file-tabs. 
+ 
+   if (p_modify > 0) {
+      _str command = "/home/patrick/.local/bin/wakatime --plugin slickedit-wakatime --write --entity ":+p_buf_name;
+      shell(command);
+   }
+}
+*/
