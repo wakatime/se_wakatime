@@ -28,9 +28,17 @@ definit()
 // This is the function that will be called by the timer.
 void periodic_callback()
 {
+<<<<<<< HEAD
    // This command is user specific Change /home/patrick/.local/bin/wakatime to 
    // the location where the CLI Plugin is installed. (linux default is 
    // /home/USERNAME/.local/bin/) 
+||||||| 8808fbc
+   // This command is user specific Change ~/.local/bin/wakatime to the location 
+   // where the CLI Plugin is installed. (linux default is ~/.local/bin/)
+=======
+   // This command is user specific Change /home/patrick/.local/bin/wakatime to the location 
+   // where the CLI Plugin is installed. (linux default is ~/.local/bin/)
+>>>>>>> 0ceb35ebb6b75fcad209b4d734e847fed1047244
    // --plugin slickedit-wakatime let's Wakatime report this as comming from 
    //   Slickedit (so it will show as Slickedit in the Wakatime Dashboard.
    // --write indicates that there was written to the file. 
