@@ -46,6 +46,7 @@ void periodic_callback()
       // check if the file was modified, and only then send a hearthbeat to wakatime
       if (p_modify > 0) {
          shell(command);
+         say(command);
       }
 
       // if the editor is opened for more than 10 minutes but no file was modified, send a hearthbeat
@@ -90,8 +91,9 @@ void _buffer_add_waka()
 {
    // Executed when a new file is added.
    // For some reason this causes Wakatime to give a "File not found error"
-   _str command = "/home/patrick/local/bin/wakatime --plugin slickedit-wakatime --write --entity ":+p_buf_name;
+   _str command = "/home/patrick/.local/bin/wakatime --plugin slickedit-wakatime --write --entity ":+p_buf_name;
    shell(command);
+   say(command);
 } 
 
 void _switchbuf_waka () // uncomment the last 2 lines of this function to have wakatime update everytime a new file/buffer
