@@ -56,6 +56,8 @@ disable_submodules = false
 ~~~~
 You can also set debug = false to debug = true to let wakatime create a log file **~/.wakatime.log** so you can see if there are any errors. (it's best to disable it again after you've checked it all works fine).
 
+Edit the file **wakatime.e** in your favorite editor and change line 38 from *_str command = "**/home/patrick/.local/bin/wakatime** --plugin slickedit-wakatime --write --entity ":+p_buf_name;* to reflect the location where the Wakatime CLI is installed on your computer (for some reason "~/.local/bin/wakatime" does not work).
+
 * Finally load the plugin into **slickedit**
 1. Start Slickedit
 2. Click Macro -> Load Macro (F12)
