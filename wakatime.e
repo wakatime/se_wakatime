@@ -93,7 +93,6 @@ void _buffer_add_waka()
    // For some reason this causes Wakatime to give a "File not found error"
    _str command = "/home/patrick/.local/bin/wakatime --plugin slickedit-wakatime --write --entity ":+p_buf_name;
    shell(command);
-   say(command);
 } 
 
 void _switchbuf_waka () // uncomment the last 2 lines of this function to have wakatime update everytime a new file/buffer
