@@ -28,7 +28,7 @@ definit()
 // This is the function that will be called by the timer.
 void periodic_callback()
 {
-   // This command is user specific Change ~/.local/bin/wakatime to the location 
+   // This command is user specific Change /home/patrick/.local/bin/wakatime to the location 
    // where the CLI Plugin is installed. (linux default is ~/.local/bin/)
    // --plugin slickedit-wakatime let's Wakatime report this as comming from 
    //   Slickedit (so it will show as Slickedit in the Wakatime Dashboard.
